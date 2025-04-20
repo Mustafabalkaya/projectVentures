@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import headerData from "../data/data.json";
+import { Navigation } from "./navigation"; // Navbar dahil edildi
 
 export const Header = () => {
   const { i18n } = useTranslation();
@@ -36,6 +37,7 @@ export const Header = () => {
     <header id="header">
       <div className="intro" style={backgroundStyle}>
         <div className="overlay">
+          <Navigation /> {/* 👈 Navbar slider'ın üzerine sabit görünür */}
           <div className="intro-center left-align">
             <div className="intro-content-wrapper">
               <div className="intro-text fade-in">
@@ -62,3 +64,8 @@ export const Header = () => {
     </header>
   );
 };
+<div id="footer">
+<div className="container text-center">
+  <p>&copy; 2025 Tüm Hakları Saklıdır</p>
+</div>
+</div>

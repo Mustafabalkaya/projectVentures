@@ -79,16 +79,26 @@ hr {
 #menu {
   padding: 15px;
   transition: all 0.8s;
-  background: rgba(10, 25, 35, 0.9); /* koyu ve transparan */
-  backdrop-filter: blur(8px);
+  background: transparent; /* Tam şeffaf */
+  backdrop-filter: none; /* Blur kaldırıldı */
   border: none;
   box-shadow: none;
+  position: absolute; /* Slider üstüne oturtulacak */
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
 }
 
 #menu.navbar-default {
-  background-color: transparent; /* override */
+  background: transparent;
   border: none;
   box-shadow: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
 }
 
 #menu a.navbar-brand {
@@ -121,67 +131,42 @@ hr {
   background: linear-gradient(to right, #6372ff 0%, #5ca9fb 100%);
   transition: width 0.2s;
 }
+#menu.scrolled {
+  background-color: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(6px);
+  transition: background-color 0.3s ease, backdrop-filter 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
 
 #menu.navbar-default .navbar-nav > li > a:hover:after {
   width: 100%;
 }
 
-.navbar-default .navbar-nav > .active > a,
-.navbar-default .navbar-nav > .active > a:hover,
-.navbar-default .navbar-nav > .active > a:focus {
-  background-color: transparent;
-  color: #fff;
-}
-
-.navbar-default .navbar-nav > .active > a:after {
-  width: 100% !important;
-}
-
-.navbar-toggle {
-  border-radius: 0;
-}
-
-.navbar-default .navbar-toggle .icon-bar {
-  background-color: #ddd;
-}
-
-.navbar-default .navbar-toggle:hover > .icon-bar {
-  background-color: #5ca9fb;
-}
-
-/* Sayfa içeriklerinin navbar'a yapışmaması için boşluk */
-body {
-  padding-top: 70px;
-}
-.btn-custom {
-  background-color: #007bff;
-  color: white !important;
-  padding: 10px 20px;
+/* Dil butonları */
+.btn-contact {
+  background: linear-gradient(to right, #0B1A30, #0B233F, #123456);
   border-radius: 30px;
-  text-decoration: none;
+  padding: 8px 18px;
+  color: #fff !important;
+  font-weight: bold;
   transition: 0.3s ease;
-  font-weight: 600;
-  display: inline-block;
-  margin-top: 10px;
 }
 
-.btn-custom:hover {
-  background-color: #0056b3;
+.btn-contact:hover {
+  background: linear-gradient(to right, #0B1A30, #0B233F, #123456);
 }
 
-
-/* Hero alanı */
+/* Hero Alanı */
 .intro {
   position: relative;
   height: 100vh;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
   display: flex;
   align-items: center;
   justify-content: center;
-  text-align: center;
   overflow: hidden;
+  margin-top: 0; /* Navbar’dan boşluk kalmasın */
+  padding-top: 0; /* Üst padding sıfır */
+  z-index: 1;
 }
 
 .overlay {
@@ -202,7 +187,6 @@ body {
   width: 100%;
 }
 
-/* Yeni: sola hizalanmış yazılar */
 .left-align {
   align-items: flex-start !important;
   text-align: left;
@@ -211,7 +195,15 @@ body {
   max-width: 700px;
 }
 
-/* Fade animasyonu */
+@media (max-width: 768px) {
+  .left-align {
+    padding-left: 20px;
+    padding-right: 20px;
+    text-align: center;
+    align-items: center !important;
+  }
+}
+
 .fade-in {
   animation: fadeInUp 1.1s ease;
 }
@@ -227,7 +219,6 @@ body {
   }
 }
 
-/* Başlık */
 .intro-title {
   font-size: clamp(2.2rem, 6vw, 4.5rem);
   font-weight: 800;
@@ -243,29 +234,12 @@ body {
   padding: 0 8px;
 }
 
-.intro-title span::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: 6px;
-  width: 100%;
-  height: 5px;
-  z-index: -1;
-  border-radius: 4px;
-}
-
-/* Paragraf */
-.intro-text p {
-  font-size: clamp(1.1rem, 2.2vw, 1.4rem);
-  color: #eee;
-  max-width: 700px;
-  margin: 0 auto 30px;
-  line-height: 1.6;
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
-}
-
 .multi-line-text {
   white-space: pre-line;
+  font-size: clamp(1.1rem, 2.2vw, 1.4rem);
+  color: #eee;
+  line-height: 1.6;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
 }
 
 /* Dotlar */
@@ -300,16 +274,15 @@ body {
     padding-left: 20px;
     padding-right: 20px;
     text-align: center;
-    align-items: center !important; /* DİKKAT: Bu tüm flex item'ları etkiler */
+    align-items: center !important;
   }
 }
-
 
 /* === Partners Section === */
 
 .partners-section {
   padding: 80px 20px;
-  background-color: #ffffff;
+  background: linear-gradient(to right, #0b1a30, #0B233F, #123456);
   text-align: center;
 }
 
@@ -433,7 +406,7 @@ body {
 /* Services Section */
 #services {
   padding: 100px 0;
-  background: linear-gradient(to right, #0f2027, #2c5364, #203a43);
+  background: linear-gradient(to right, #0B1A30, #0B233F, #123456);
   color: #fff;
 }
 #services .service-desc {
@@ -456,12 +429,20 @@ body {
   font-size: 42px;
   width: 120px;
   height: 120px;
-  padding: 40px 0;
-  background: linear-gradient(to right, #0f2027, #2c5364, #203a43);
-  border-radius: 50%;
+  background: rgba(11, 35, 63, 0.7); /* Arka plan rengini yarı saydam yap */
+  border-radius: 0; /* Kenar yuvarlaklığını sıfırlayın */
   color: #fff;
-  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.05);
+  box-shadow: none; /* Gölge efektini kaldır */
+  display: flex; /* Flexbox kullanarak içeriği ortalayın */
+  align-items: center; /* Dikey ortalama */
+  justify-content: center; /* Yatay ortalama */
+  transition: background 0.3s; /* Arka plan geçişi için animasyon ekleyin */
 }
+
+#services i.fa:hover {
+  background: rgba(11, 35, 63, 0.9); /* Hover durumunda arka plan rengini koyulaştır */
+}
+
 #services h3 {
   font-weight: 500;
   padding: 5px 0;
@@ -489,11 +470,8 @@ body {
   text-align: center;
   margin: 0 auto;
   color: #fff;
-  background: linear-gradient(
-    to right,
-    rgba(99, 114, 255, 0.8) 0%,
-    rgba(92, 169, 251, 0.8) 100%
-  );
+  background: linear-gradient(to right, #0B1A30, #0B233F, #123456);
+
   padding: 30% 0 0;
   height: 100%;
   width: 100%;
@@ -563,163 +541,197 @@ body {
 /* Team Section */
 #team {
   padding: 100px 0;
-  background: linear-gradient(to right, #0f2027, #2c5364, #203a43);
-
-}
-#team h4 {
-  margin: 5px 0;
-}
-#team .team-img {
-  width: 300px; /* Örneğin 240px yerine 300px yap */
-  height: auto; /* Oran bozulmasın */
-  object-fit: contain; /* Taşma olmasın */
-}
-#team .thumbnail {
-  background: transparent;
-  border: 0;
-}
-#team .thumbnail .caption {
-  padding: 10px 0 0;
-  color: #888;
-}
-/* Contact Section */
-#contact {
-  padding: 100px 0 60px;
-  background: linear-gradient(to right, #0f2027, #2c5364, #203a43);
-  color: rgba(255, 255, 255, 0.75);
-}
-#contact .section-title {
-  margin-bottom: 40px;
-}
-#contact .section-title p {
-  font-size: 16px;
-}
-#contact h2 {
-  color: #fff;
-  margin-top: 10px;
-  margin-bottom: 15px;
-  padding-bottom: 15px;
-}
-#contact .section-title h2::after {
-  position: absolute;
-  content: "";
-  background: rgba(255, 255, 255, 0.3);
-  height: 4px;
-  width: 60px;
-  bottom: 0;
-  left: 30px;
-}
-#contact h3 {
-  color: #fff;
-  margin-top: 80px;
-  margin-bottom: 25px;
-  padding-bottom: 20px;
-  font-weight: 400;
-}
-#contact form {
-  padding-top: 20px;
-}
-#contact .text-danger {
-  color: #cc0033;
-  text-align: left;
-}
-#contact .btn-custom {
-  margin: 30px 0;
-  background: transparent;
-  border: 2px solid #fff;
-}
-#contact .btn-custom:hover {
-  color: #1f386e;
-  background: #fff;
-}
-label {
-  font-size: 12px;
-  font-weight: 400;
-  font-family: "Open Sans", sans-serif;
-  float: left;
-}
-#contact .form-control {
-  display: block;
-  width: 100%;
-  padding: 6px 12px;
-  font-size: 16px;
-  line-height: 1.42857143;
-  color: #444;
-  background-color: #fff;
-  background-image: none;
-  border: 1px solid #ddd;
-  border-radius: 0;
-  -webkit-box-shadow: none;
-  box-shadow: none;
-  -webkit-transition: none;
-  -o-transition: none;
-  transition: none;
-}
-#contact .form-control:focus {
-  border-color: #999;
-  outline: 0;
-  -webkit-box-shadow: transparent;
-  box-shadow: transparent;
-}
-.form-control::-webkit-input-placeholder {
-  color: #777;
-}
-.form-control:-moz-placeholder {
-  color: #777;
-}
-.form-control::-moz-placeholder {
-  color: #777;
-}
-.form-control:-ms-input-placeholder {
-  color: #777;
-}
-#contact .contact-item {
-  margin: 20px 0;
-}
-#contact .contact-item span {
-  color: rgba(255, 255, 255, 1);
-  margin-bottom: 10px;
-  display: block;
-}
-#contact .contact-item i.fa {
-  margin-right: 10px;
-}
-#contact .social {
-  border-top: 1px solid rgba(255, 255, 255, 0.15);
-  padding-top: 50px;
-  margin-top: 50px;
+  background: linear-gradient(to right, #0b1a30, #0B233F, #123456);
   text-align: center;
 }
-#contact .social ul li {
-  display: inline-block;
-  margin: 0 20px;
+
+.partners-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 40px;
+  align-items: center;
+  justify-content: center;
 }
-#contact .social i.fa {
-  font-size: 22px;
-  width: 48px;
-  height: 48px;
-  padding: 12px 0;
-  border: 2px solid #fff;
-  color: #fff;
-  border-radius: 50%;
-  transition: all 0.3s;
+
+.partner-item {
+  filter: brightness(0.9) contrast(1.3);
+  transition: all 0.3s ease;
+  opacity: 0.9;
 }
-#contact .social i.fa:hover {
-  color: #608dfd;
-  background: #fff;
+
+.partner-item:hover {
+  filter: brightness(1.1) contrast(1.6);
+  opacity: 1;
+  transform: scale(1.05);
 }
+
+.partner-logo {
+  max-width: 120px;
+  max-height: 80px;
+  object-fit: contain;
+  margin: 0 auto;
+  display: block;
+} 
+/* Contact Section */
+.contact-section {
+  padding: 100px 20px;
+  background: linear-gradient(to right, #0B1A30, #0B233F, #123456);
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.contact-title {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 30px;
+}
+
+.text-mask {
+  -webkit-box-decoration-break: clone;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group textarea {
+  width: 100%;
+  padding: 10px;
+  border: none; /* Kenarları kaldır */
+  border-bottom: 2px solid #ddd; /* Sadece alt kenar çizgisi */
+  border-radius: 0; /* Kenar yuvarlaklığını kaldır */
+  background: transparent; /* Arka planı şeffaf yap */
+}
+
+.form-group input[type="text"]:focus,
+.form-group input[type="email"]:focus,
+.form-group textarea:focus {
+  outline: none; /* Odaklanma çerçevesini kaldır */
+  border-bottom: 2px solid #0B233F; /* Odaklandığında alt kenar rengini değiştir */
+}
+
+.form-group.checkbox {
+  display: flex;
+  align-items: center;
+}
+
+.btn-custom {
+  padding: 10px 20px;
+  background-color: #ffffff;
+  color: #0B233F;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.btn-custom:hover {
+  background-color: #0B233F;
+  color: #ffffff;
+}
+
+
+
+
+
 /* Footer Section*/
-#footer {
-  background: #f6f6f6;
-  padding: 30px 0;
+.footer {
+  background: linear-gradient(to right, #0B1A30, #0B233F, #123456);
+  color: #ffffff;
+  padding: 40px 20px 20px;
+  font-family: "Segoe UI", sans-serif;
 }
-#footer p {
-  color: #888;
+
+.footer-top {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.footer-column {
+  flex: 1 1 300px;
+  margin: 10px 20px;
+}
+
+.footer-column h4 {
+  font-size: 18px;
+  margin-bottom: 10px;
+  color: #ffffff;
+}
+
+.footer-column p,
+.footer-column a {
+  margin: 5px 0;
+  color: #c0c0c0;
+  text-decoration: none;
+}
+
+.footer-column a:hover {
+  text-decoration: underline;
+}
+
+.footer-social .social-icons {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 15px;
+}
+
+.footer-social .social-icons a {
+  color: #c0c0c0;
+  font-size: 20px;
+  transition: color 0.3s ease;
+}
+
+.footer-social .social-icons a:hover {
+  color: #ffffff;
+}
+
+.footer-button {
+  padding: 10px 20px;
+  background-color: #ffffff;
+  color: #0B233F;
+  font-weight: 600;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.footer-button:hover {
+  background-color: #0B233F;
+  color: #ffffff;
+  border: 1px solid #ffffff;
+}
+
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
   font-size: 14px;
+  color: #c0c0c0;
+  margin-top: 20px;
 }
-#footer a {
-  color: #608dfd;
+
+.footer-links a {
+  margin-left: 20px;
+  text-decoration: none;
+  color: #c0c0c0;
 }
-#footer a:hover {
-  border-bottom: 2px solid #608dfd;
+
+.footer-links a:hover {
+  text-decoration: underline;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid #2a3d56;
+  margin: 20px 0;
 }

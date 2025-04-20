@@ -186,11 +186,22 @@
   ],
   
       "Team": [
-        { "img": "/img/team/logo.png", "name": "Partner 1", "job": "" },
-        { "img": "img/team/sabanci.png", "name": "Partner 2", "job": "" },
-        { "img": "img/team/eczacibasi.png", "name": "Partner 3", "job": "" },
-        { "img": "img/team/koc.png", "name": "Partner 4", "job": "" },
-        { "img": "img/team/limak.png", "name": "Partner 4", "job": "" }
+        { "img": "/img/team/ikas.png", "name": "Partner 1", "job": "" },
+        { "img": "img/team/ticimax.png", "name": "Partner 2", "job": "" },
+        { "img": "img/team/shopify.png", "name": "Partner 3", "job": "" },
+        { "img": "img/team/tsoft.png", "name": "Partner 4", "job": "" },
+        { "img": "img/team/faprika.png", "name": "Partner 5", "job": "" },
+        { "img": "img/team/pay-tr.png", "name": "Partner 6", "job": "" },
+        { "img": "img/team/sipay.png", "name": "Partner 7", "job": "" },
+        { "img": "img/team/revotas.png", "name": "Partner 8", "job": "" },
+        { "img": "img/team/destekpatent.png", "name": "Partner 9", "job": "" },
+        { "img": "img/team/sentoslogo.png", "name": "Partner 10", "job": "" },
+        { "img": "img/team/sopyo.png", "name": "Partner 11", "job": "" },
+        { "img": "img/team/pixa.png", "name": "Partner 12", "job": "" },
+        { "img": "img/team/prapazar.png", "name": "Partner 13", "job": "" }
+
+
+        
       ]
     ,
   "Contact": {
