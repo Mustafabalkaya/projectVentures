@@ -34,13 +34,9 @@ const Footer = () => {
 
       <hr />
 
-      <div className="footer-bottom">
-        <p>© Ventures Project 2025</p>
-        <div className="footer-links">
-          <a href=" #">KVKK</a>
-          <a href=" #">BGYS Politikası</a>
-        </div>
-      </div>
+  <div className="footer-bottom">
+  <p>© Ventures Project {new Date().getFullYear()}</p>
+</div>
     </footer>
   );
 };

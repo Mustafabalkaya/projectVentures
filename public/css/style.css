@@ -233,7 +233,9 @@ hr {
   position: relative;
   padding: 0 8px;
 }
-
+.intro-content-wrapper {
+  margin-left: 120px; /* veya padding-left: 120px; */
+}
 .multi-line-text {
   white-space: pre-line;
   font-size: clamp(1.1rem, 2.2vw, 1.4rem);
@@ -405,99 +407,78 @@ hr {
 
 /* Services Section */
 #services {
-  padding: 100px 0;
-  background: linear-gradient(to right, #0B1A30, #0B233F, #123456);
-  color: #fff;
-}
-#services .service-desc {
-  margin: 10px 10px 20px;
-}
-#services h2 {
-  color: #fff;
-}
-#services .section-title h2::after {
-  position: absolute;
-  content: "";
-  background: rgba(255, 255, 255, 0.3);
-  height: 4px;
-  width: 60px;
-  bottom: 0;
-  margin-left: -30px;
-  left: 50%;
-}
-#services i.fa {
-  font-size: 42px;
-  width: 120px;
-  height: 120px;
-  background: rgba(11, 35, 63, 0.7); /* Arka plan rengini yarı saydam yap */
-  border-radius: 0; /* Kenar yuvarlaklığını sıfırlayın */
-  color: #fff;
-  box-shadow: none; /* Gölge efektini kaldır */
-  display: flex; /* Flexbox kullanarak içeriği ortalayın */
-  align-items: center; /* Dikey ortalama */
-  justify-content: center; /* Yatay ortalama */
-  transition: background 0.3s; /* Arka plan geçişi için animasyon ekleyin */
+  padding: 80px 0;
+  background: #f7f7f7; /* Arka plan açık renk */
+  color: #000000;
 }
 
-#services i.fa:hover {
-  background: rgba(11, 35, 63, 0.9); /* Hover durumunda arka plan rengini koyulaştır */
+#services .section-title h2 {
+  color: #0B1A30;
 }
 
-#services h3 {
-  font-weight: 500;
-  padding: 5px 0;
-  color: #fff;
-}
-#services p {
-  color: rgba(255, 255, 255, 0.75);
-}
-#services .service-desc {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  height: 100%;
-  text-align: center;
-  background: none;
-  margin-bottom: 40px;
-}
 #services .row {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center; /* orta hizalama için */
+  justify-content: center;
+  gap: 40px 20px; /* Kutular arası boşluk */
 }
-.hover-bg .hover-text {
-  position: absolute;
-  text-align: center;
-  margin: 0 auto;
-  color: #fff;
-  background: linear-gradient(to right, #0B1A30, #0B233F, #123456);
 
-  padding: 30% 0 0;
-  height: 100%;
-  width: 100%;
-  opacity: 0;
-  transition: all 0.5s;
+#services .col-lg-4 {
+  flex: 0 0 30%;
+  max-width: 30%;
+  box-sizing: border-box;
 }
-.hover-bg .hover-text > h4 {
-  opacity: 0;
-  color: #fff;
-  -webkit-transform: translateY(100%);
-  transform: translateY(100%);
-  transition: all 0.3s;
+
+@media (max-width: 992px) {
+  #services .col-lg-4 {
+    flex: 0 0 45%;
+    max-width: 45%;
+  }
+}
+
+@media (max-width: 768px) {
+  #services .col-lg-4 {
+    flex: 0 0 90%;
+    max-width: 90%;
+  }
+}
+
+#services .service-desc {
+  background: none;
+  padding: 20px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#services i.fa {
+  font-size: 36px;
+  width: 60px;
+  height: 60px;
+  background: none;
+  color: #0B1A30;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 15px;
+}
+
+#services h3 {
   font-size: 18px;
-  letter-spacing: 1px;
-  font-weight: 500;
-  text-transform: uppercase;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: #0B1A30;
 }
-.hover-bg:hover .hover-text > h4 {
-  opacity: 1;
-  -webkit-backface-visibility: hidden;
-  -webkit-transform: translateY(0);
-  transform: translateY(0);
+
+#services p {
+  font-size: 14px;
+  color: #333;
+  line-height: 1.5;
+  margin: 0;
 }
-.hover-bg:hover .hover-text {
-  opacity: 1;
-}
+
+
 /* Testimonials Section */
 #testimonials {
   padding: 100px 0;
@@ -541,7 +522,7 @@ hr {
 /* Team Section */
 #team {
   padding: 100px 0;
-  background: linear-gradient(to right, #0b1a30, #0B233F, #123456);
+  background: #f7f7f7;
   text-align: center;
 }
 
@@ -642,8 +623,8 @@ hr {
 
 /* Footer Section*/
 .footer {
-  background: linear-gradient(to right, #0B1A30, #0B233F, #123456);
-  color: #ffffff;
+  background: #f7f7f7;
+  color: #000000;
   padding: 40px 20px 20px;
   font-family: "Segoe UI", sans-serif;
 }
@@ -663,13 +644,13 @@ hr {
 .footer-column h4 {
   font-size: 18px;
   margin-bottom: 10px;
-  color: #ffffff;
+  color: #000000;
 }
 
 .footer-column p,
 .footer-column a {
   margin: 5px 0;
-  color: #c0c0c0;
+  color: #000000;
   text-decoration: none;
 }
 
@@ -690,7 +671,7 @@ hr {
 }
 
 .footer-social .social-icons a:hover {
-  color: #ffffff;
+  color: #000000;
 }
 
 .footer-button {
@@ -705,20 +686,21 @@ hr {
 }
 
 .footer-button:hover {
-  background-color: #0B233F;
+  background-color: #000000;
   color: #ffffff;
   border: 1px solid #ffffff;
 }
 
 .footer-bottom {
   display: flex;
-  justify-content: space-between;
+  justify-content: center; /* Ortaya al */
   align-items: center;
   flex-wrap: wrap;
   font-size: 14px;
-  color: #c0c0c0;
+  color: #000000;
   margin-top: 20px;
 }
+
 
 .footer-links a {
   margin-left: 20px;
