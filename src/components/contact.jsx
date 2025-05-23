@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import emailjs from "emailjs-com";
 import { Link, useLocation } from 'react-router-dom';
-import logo from '../assets/images/logo.png'; // Logonuzun doğru yolu
+import logo from '../assets/images/logo..png'; // Logonuzun doğru yolu
 
 const initialState = {
   name: "",
@@ -59,75 +59,77 @@ export const Contact = () => {
   }, [location]);
 
   return (
-    <div id="contact" className="contact-section">
-      <div className="container">
-        <Link to="/">
-          <img src={logo} alt="Logo" className="contact-logo" /> {/* Logoya tıklanabilirlik eklendi */}
-        </Link>
-        <h1 className="contact-title"> <span className="text-mask"></span> </h1>
-        <form ref={formRef} onSubmit={handleSubmit}>
-          <div className="form-group">
-            <label htmlFor="name">Ad Soyad</label>
-            <input
-              type="text"
-              id="name"
-              name="name"
-              required
-              onChange={handleChange}
-              value={name}
-            />
-          </div>
-
-          <div className="form-group">
-            <label htmlFor="email">E-Posta</label>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              required
-              onChange={handleChange}
-              value={email}
-            />
-          </div>
-
-          <div className="form-group">
-            <label htmlFor="company">Firma Adı</label>
-            <input
-              type="text"
-              id="company"
-              name="company"
-              onChange={handleChange}
-              value={company}
-            />
-          </div>
-
-          <div className="form-group">
-            <label htmlFor="message">Mesaj</label>
-            <textarea
-              id="message"
-              name="message"
-              required
-              onChange={handleChange}
-              value={message}
-            ></textarea>
-          </div>
-
-          <div className="form-group checkbox">
-            <input
-              type="checkbox"
-              id="subscribe"
-              name="subscribe"
-              checked={subscribe}
-              onChange={handleChange}
-            />
-            <label htmlFor="subscribe">
-              Ventures tarafından hazırlanan haberler hakkında e-posta almak istiyorum.
-            </label>
-          </div>
-
-          <button type="submit" className="btn-custom">Gönder</button>
-        </form>
+   <div id="contact" className="contact-section">
+  <div className="container">
+    <Link to="/">
+      <img src={logo} alt="Logo" className="contact-logo" />
+    </Link>
+    <h1 className="contact-title">
+      <span className="text-mask"></span>
+    </h1>
+    <form ref={formRef} onSubmit={handleSubmit}>
+      <div className="form-group">
+        <input
+          type="text"
+          id="name"
+          name="name"
+          placeholder="Ad Soyad"
+          required
+          onChange={handleChange}
+          value={name}
+        />
       </div>
-    </div>
+
+      <div className="form-group">
+        <input
+          type="email"
+          id="email"
+          name="email"
+          placeholder="E-Posta"
+          required
+          onChange={handleChange}
+          value={email}
+        />
+      </div>
+
+      <div className="form-group">
+        <input
+          type="text"
+          id="company"
+          name="company"
+          placeholder="Firma Adı"
+          onChange={handleChange}
+          value={company}
+        />
+      </div>
+
+      <div className="form-group">
+        <textarea
+          id="message"
+          name="message"
+          placeholder="Mesaj"
+          required
+          onChange={handleChange}
+          value={message}
+        ></textarea>
+      </div>
+
+      <div className="form-group checkbox">
+        <input
+          type="checkbox"
+          id="subscribe"
+          name="subscribe"
+          checked={subscribe}
+          onChange={handleChange}
+        />
+        <label htmlFor="subscribe">
+          Ventures tarafından hazırlanan haberler hakkında e-posta almak istiyorum.
+        </label>
+      </div>
+
+      <button type="submit" className="btn-custom">Gönder</button>
+    </form>
+  </div>
+</div>
   );
 };
